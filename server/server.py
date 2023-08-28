@@ -4,13 +4,13 @@ import sqlite3
 
 
 class Server():
-    def create_server(self) -> None:
+    def __init__(self):
         try:
             self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.server.bind((SERVER_IP, SERVER_PORT))
             print('Create server [ACCESS]')
         except:
-            print('Create server [ERROR]')
+            print('Create server [DENIED]')
 
     def open_server(self):
         self.server.listen()
@@ -22,7 +22,6 @@ class Server():
 
 def main():
     server = Server()
-    server.create_server()
     server.open_server()
 
 
