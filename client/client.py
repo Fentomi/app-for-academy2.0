@@ -1,5 +1,5 @@
 import socket
-from server.server_config import SERVER_IP, SERVER_PORT
+from server_config import SERVER_IP, SERVER_PORT
 
 class Client():
     def __init__(self):
@@ -10,9 +10,13 @@ class Client():
         except:
             print('Connect with server [DENIED]')
 
+    def send_message_on_server(self, text: str) -> None:
+        self.client.send(text.encode('utf-8'))
+
 
 def main():
     client = Client()
+    client.send_message_on_server('Example')
 
 
 if __name__ == '__main__':

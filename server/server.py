@@ -1,6 +1,5 @@
 from server_config import SERVER_IP, SERVER_PORT
 import socket
-import sqlite3
 
 
 class Server():
@@ -16,8 +15,13 @@ class Server():
         self.server.listen()
         print('Server is listen...')
         while True:
-            user, data = self.server.accept()
-            print(f'Server find a friend! it\'s {user}')
+            self.user, self.data = self.server.accept()
+            print(f'Server find a friend! it\'s {self.user}')
+            self.get_request_from_client()
+
+    def get_request_from_client(self):
+        request = self.user.recv(10000).decode('utf-8')
+        print(request)
 
 
 def main():
