@@ -1,6 +1,7 @@
 from server_config import SERVER_IP, SERVER_PORT
 import socket
 import pickle
+from database_controller import Database
 
 
 class Server():
@@ -41,7 +42,9 @@ class Server():
 
     #send sql-request on database and return tuple or bool result
     def send_request_in_database(self, sql_request: str) -> (bool, tuple):
-        return [('haha')]
+        database = Database()
+        database.create_connect()
+        return database.send_sql_request(sql_request)
 
 
 def main():

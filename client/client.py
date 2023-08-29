@@ -26,7 +26,7 @@ class Client():
 def main():
     client = Client()
     client.connect(SERVER_IP, SERVER_PORT)
-    answer = client.send_and_recv_request_on_server('Privet!')
+    answer = client.send_and_recv_request_on_server('select * from learntype')
     print(answer)
     client.close()
 
