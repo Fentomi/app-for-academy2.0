@@ -18,6 +18,7 @@ class Application(QMainWindow):
         self.update_combobox_learntype()
         self.fill_tablewidget(self.ui.tableWidget_before, data)
         self.ui.pushButton_apply.clicked.connect(self.apply_button_search)
+        self.ui.pushButton_clear.clicked.connect(self.clear_button_search)
 
     def update_combobox_learntype(self):
         combobox = self.ui.comboBox_learntype
@@ -49,7 +50,13 @@ class Application(QMainWindow):
         client.close()
 
         self.fill_tablewidget(self.ui.tableWidget_before, data)
+    def clear_button_search(self):
+        client = Client()
+        client.connect()
+        data = client.send_and_recv_request_on_server('select * from learntype')
+        client.close()
 
+        self.fill_tablewidget(self.ui.tableWidget_before, data)
 
 
 if __name__ == '__main__':
