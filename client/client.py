@@ -4,9 +4,9 @@ from server_config import SERVER_IP, SERVER_PORT
 
 class Client():
     #connect with server
-    def connect(self, ip_server: str, port_server: int):
+    def connect(self):
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client.connect((ip_server, port_server))
+        self.client.connect((SERVER_IP, SERVER_PORT))
 
     #send and recv sql-request on server
     def send_and_recv_request_on_server(self, sql_request: str) -> (tuple, bool):
@@ -25,7 +25,7 @@ class Client():
 
 def main():
     client = Client()
-    client.connect(SERVER_IP, SERVER_PORT)
+    client.connect()
     answer = client.send_and_recv_request_on_server('select * from learntype')
     print(answer)
     client.close()
