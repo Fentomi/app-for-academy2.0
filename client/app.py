@@ -29,7 +29,6 @@ class Application(QMainWindow):
         client.close()
         for item in data:
             combobox.addItem(item[0])
-
     def fill_tablewidget(self, QTableWidget, data):
         QTableWidget.setRowCount(len(data))
         for row in range(len(data)):
@@ -38,7 +37,9 @@ class Application(QMainWindow):
             QTableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(str(data[row][3])))
             QTableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(data[row][4])))
             QTableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(data[row][5])))
-
+    def clear_tablewidget(self, QTableWidget):
+        QTableWidget.clearContents()
+        QTableWidget.setRowCount(0)
     def apply_button_search(self):
         combobox = self.ui.comboBox_learntype.currentText()
         skidka = self.ui.lineedit_skidka.text()
@@ -54,7 +55,6 @@ class Application(QMainWindow):
         else:
             self.fill_tablewidget(self.ui.tableWidget_before, data)
             self.fill_tablewidget(self.ui.tableWidget_after, self.change_data_with_skidka(data, skidka))
-
     def clear_button_search(self):
         client = Client()
         client.connect()
@@ -62,9 +62,7 @@ class Application(QMainWindow):
         client.close()
 
         self.fill_tablewidget(self.ui.tableWidget_before, data)
-        self.ui.tableWidget_after.clearContents()
-        self.ui.tableWidget_after.setRowCount(0)
-
+        self.clear_tablewidget(self.ui.tableWidget_after)
     def change_data_with_skidka(self, tuple_data, skidka=0):
         change_data = []
         float_skidka = float(f'0.{skidka}')
@@ -78,7 +76,6 @@ class Application(QMainWindow):
                         list_data[j] = int(tuple_data[i][j] - (tuple_data[i][j] * float_skidka))
             change_data.append(tuple(list_data))
         return change_data
-
 
 
 if __name__ == '__main__':
