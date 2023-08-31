@@ -204,38 +204,6 @@ font-size: 14px;</string>
     <string>Стоимость обучения (за год):</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineedit_learntype">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>50</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgba(43,48,55, 0.8);
-border: 1px solid gray;
-border-radius: 5px;
-color: white;</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineedit_learntime">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>80</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgba(43,48,55, 0.8);
-border: 1px solid gray;
-border-radius: 5px;
-color: white;</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lineedit_learnprice_month">
    <property name="geometry">
     <rect>
@@ -273,6 +241,22 @@ color: white;</string>
     <rect>
      <x>220</x>
      <y>170</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(43,48,55, 0.8);
+border: 1px solid gray;
+border-radius: 5px;
+color: white;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineedit_learnprice_month_2">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>80</y>
      <width>151</width>
      <height>21</height>
     </rect>
