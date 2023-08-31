@@ -33,7 +33,10 @@ class Server():
             print(f'data is: {data}')
 
             #send client data
-            conn.send(pickle.dumps(data))
+            if len(data) == 0:
+                conn.send(pickle.dumps('nothing'))
+            else:
+                conn.send(pickle.dumps(data))
 
             #close connection with client
             conn.close()
