@@ -2,8 +2,65 @@ import sys
 from PySide6 import QtWidgets
 from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidget
 from design.app import Ui_MainWindow
+from design.adminpanel_mainwindow import Ui_adminpanel
 from client import Client
 
+class Adminpanel(QMainWindow):
+    def __init__(self):
+        super(Adminpanel, self).__init__()
+        self.ui = Ui_adminpanel()
+        self.ui.setupUi(self)
+
+        self.ui.pushButton_delete.clicked.connect(self.adminpanel_delete_value)
+        self.ui.pushButton_add.clicked.connect(self.adminpanel_add_value)
+        self.ui.pushButton_change.clicked.connect(self.adminpanel_change_value)
+
+    def adminpanel_add_value(self):
+        learntype = self.ui.lineedit_learntype.text()
+        learntime = self.ui.lineedit_learntime.text()
+        learnprice_month = self.ui.lineedit_learnprice_month.text()
+        learnprice_sem = self.ui.lineedit_learntime_sem.text()
+        learnprice_year = self.ui.lineedit_learnprice_year.text()
+
+        self.ui.lineedit_learntype.clear()
+        self.ui.lineedit_learntime.clear()
+        self.ui.lineedit_learnprice_month.clear()
+        self.ui.lineedit_learntime_sem.clear()
+        self.ui.lineedit_learnprice_year.clear()
+
+        client = Client()
+        client.connect()
+        data = client.send_and_recv_request_on_server(f'select * from learntype;')
+        client.close()
+
+        client = Client()
+        client.connect()
+        client.send_and_recv_request_on_server(f'insert into learntype values ({len(data)+1},\'{learntype}\',{learntime},{learnprice_month},{learnprice_sem},{learnprice_year});')
+        client.close()
+    def adminpanel_delete_value(self):
+        learntype = self.ui.lineedit_learntype.text()
+        learntime = self.ui.lineedit_learntime.text()
+        learnprice_month = self.ui.lineedit_learnprice_month.text()
+        learnprice_sem = self.ui.lineedit_learntime_sem.text()
+        learnprice_year = self.ui.lineedit_learnprice_year.text()
+
+        self.ui.lineedit_learntype.clear()
+        self.ui.lineedit_learntime.clear()
+        self.ui.lineedit_learnprice_month.clear()
+        self.ui.lineedit_learntime_sem.clear()
+        self.ui.lineedit_learnprice_year.clear()
+    def adminpanel_change_value(self):
+        learntype = self.ui.lineedit_learntype.text()
+        learntime = self.ui.lineedit_learntime.text()
+        learnprice_month = self.ui.lineedit_learnprice_month.text()
+        learnprice_sem = self.ui.lineedit_learntime_sem.text()
+        learnprice_year = self.ui.lineedit_learnprice_year.text()
+
+        self.ui.lineedit_learntype.clear()
+        self.ui.lineedit_learntime.clear()
+        self.ui.lineedit_learnprice_month.clear()
+        self.ui.lineedit_learntime_sem.clear()
+        self.ui.lineedit_learnprice_year.clear()
 class Application(QMainWindow):
     def __init__(self):
         super(Application, self).__init__()
@@ -19,7 +76,11 @@ class Application(QMainWindow):
         self.fill_tablewidget(self.ui.tableWidget_before, data)
         self.ui.pushButton_apply.clicked.connect(self.apply_button_search)
         self.ui.pushButton_clear.clicked.connect(self.clear_button_search)
+        self.ui.pushButton_adminpanel.clicked.connect(self.create_adminpanel)
 
+    def create_adminpanel(self):
+        self.adminpanel = Adminpanel()
+        self.adminpanel.show()
     def update_combobox_learntype(self):
         combobox = self.ui.comboBox_learntype
         combobox.clear()
