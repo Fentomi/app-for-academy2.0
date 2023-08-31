@@ -23,13 +23,13 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(952, 599)
+        MainWindow.resize(1130, 600)
         MainWindow.setStyleSheet(u"background-color: rgb(32,37,43);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(30, 30, 421, 171))
+        self.label.setGeometry(QRect(20, 30, 431, 171))
         self.label.setStyleSheet(u"background-color: rgba(14,15,20, 0.75);\n"
 "border: 1px solid gray;")
         self.pushButton_apply = QPushButton(self.centralwidget)
@@ -76,31 +76,31 @@ class Ui_MainWindow(object):
 "color: white;")
         self.label_5 = QLabel(self.centralwidget)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(30, 220, 441, 351))
+        self.label_5.setGeometry(QRect(20, 220, 531, 351))
         self.label_5.setStyleSheet(u"background-color: rgba(14,15,20, 0.75);\n"
 "border: 1px solid gray;")
         self.label_6 = QLabel(self.centralwidget)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setGeometry(QRect(500, 220, 441, 351))
+        self.label_6.setGeometry(QRect(580, 220, 531, 351))
         self.label_6.setStyleSheet(u"background-color: rgba(14,15,20, 0.75);\n"
 "border: 1px solid gray;")
         self.label_7 = QLabel(self.centralwidget)
         self.label_7.setObjectName(u"label_7")
-        self.label_7.setGeometry(QRect(0, 220, 301, 31))
+        self.label_7.setGeometry(QRect(-10, 220, 301, 31))
         self.label_7.setStyleSheet(u"background-color: none;\n"
 "color: white;\n"
 "margin: 0 auto;\n"
 "font-size: 20px;")
         self.label_8 = QLabel(self.centralwidget)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setGeometry(QRect(500, 220, 141, 31))
+        self.label_8.setGeometry(QRect(550, 220, 141, 31))
         self.label_8.setStyleSheet(u"background-color: none;\n"
 "color: white;\n"
 "margin: 0 auto;\n"
 "font-size: 20px;")
         self.pushButton_adminpanel = QPushButton(self.centralwidget)
         self.pushButton_adminpanel.setObjectName(u"pushButton_adminpanel")
-        self.pushButton_adminpanel.setGeometry(QRect(860, 20, 75, 24))
+        self.pushButton_adminpanel.setGeometry(QRect(20, 0, 75, 24))
         self.pushButton_adminpanel.setStyleSheet(u"background-color: rgba(43,48,55, 0.8);\n"
 "border: 1px solid gray;\n"
 "border-radius: 5px;\n"
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem4 = QTableWidgetItem()
         self.tableWidget_before.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         self.tableWidget_before.setObjectName(u"tableWidget_before")
-        self.tableWidget_before.setGeometry(QRect(40, 260, 391, 301))
+        self.tableWidget_before.setGeometry(QRect(30, 260, 511, 301))
         self.tableWidget_before.setMinimumSize(QSize(391, 0))
         self.tableWidget_before.setStyleSheet(u"")
         self.tableWidget_before.horizontalHeader().setCascadingSectionResizes(False)
@@ -145,7 +145,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem9 = QTableWidgetItem()
         self.tableWidget_after.setHorizontalHeaderItem(4, __qtablewidgetitem9)
         self.tableWidget_after.setObjectName(u"tableWidget_after")
-        self.tableWidget_after.setGeometry(QRect(540, 250, 391, 301))
+        self.tableWidget_after.setGeometry(QRect(590, 260, 511, 301))
         self.tableWidget_after.setMinimumSize(QSize(391, 0))
         self.tableWidget_after.setStyleSheet(u"")
         self.tableWidget_after.horizontalHeader().setCascadingSectionResizes(False)
@@ -159,7 +159,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"FentomiApp", None))
         self.label.setText("")
         self.pushButton_apply.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0438\u0441\u043a", None))
