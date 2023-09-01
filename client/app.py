@@ -16,39 +16,50 @@ class Adminpanel(QMainWindow):
         self.ui.pushButton_change.clicked.connect(self.adminpanel_change_value)
 
     def adminpanel_add_value(self):
-        learntype = self.ui.lineedit_learntype.text()
-        learntime = self.ui.lineedit_learntime.text()
-        learnprice_month = self.ui.lineedit_learnprice_month.text()
-        learnprice_sem = self.ui.lineedit_learntime_sem.text()
-        learnprice_year = self.ui.lineedit_learnprice_year.text()
+        try:
+            learntype = self.ui.lineedit_learntype.text()
+            learntime = self.ui.lineedit_learntime.text()
+            learnprice_month = self.ui.lineedit_learnprice_month.text()
+            learnprice_sem = self.ui.lineedit_learntime_sem.text()
+            learnprice_year = self.ui.lineedit_learnprice_year.text()
 
-        self.ui.lineedit_learntype.clear()
-        self.ui.lineedit_learntime.clear()
-        self.ui.lineedit_learnprice_month.clear()
-        self.ui.lineedit_learntime_sem.clear()
-        self.ui.lineedit_learnprice_year.clear()
+            self.ui.lineedit_learntype.clear()
+            self.ui.lineedit_learntime.clear()
+            self.ui.lineedit_learnprice_month.clear()
+            self.ui.lineedit_learntime_sem.clear()
+            self.ui.lineedit_learnprice_year.clear()
 
-        client = Client()
-        client.connect()
-        data = client.send_and_recv_request_on_server(f'select * from learntype;')
-        client.close()
+            client = Client()
+            client.connect()
+            data = client.send_and_recv_request_on_server(f'select * from learntype;')
+            client.close()
 
-        client = Client()
-        client.connect()
-        client.send_and_recv_request_on_server(f'insert into learntype values ({len(data)+1},\'{learntype}\',{learntime},{learnprice_month},{learnprice_sem},{learnprice_year});')
-        client.close()
+            client = Client()
+            client.connect()
+            client.send_and_recv_request_on_server(f'insert into learntype values ({len(data)+1},\'{learntype}\',{learntime},{learnprice_month},{learnprice_sem},{learnprice_year});')
+            client.close()
+        except:
+            error = QtWidgets.QDialog()
+            error.show()
     def adminpanel_delete_value(self):
-        learntype = self.ui.lineedit_learntype.text()
-        learntime = self.ui.lineedit_learntime.text()
-        learnprice_month = self.ui.lineedit_learnprice_month.text()
-        learnprice_sem = self.ui.lineedit_learntime_sem.text()
-        learnprice_year = self.ui.lineedit_learnprice_year.text()
+        try:
+            learntype = self.ui.lineedit_learntype.text()
 
-        self.ui.lineedit_learntype.clear()
-        self.ui.lineedit_learntime.clear()
-        self.ui.lineedit_learnprice_month.clear()
-        self.ui.lineedit_learntime_sem.clear()
-        self.ui.lineedit_learnprice_year.clear()
+            self.ui.lineedit_learntype.clear()
+            self.ui.lineedit_learntime.clear()
+            self.ui.lineedit_learnprice_month.clear()
+            self.ui.lineedit_learntime_sem.clear()
+            self.ui.lineedit_learnprice_year.clear()
+
+            client = Client()
+            client.connect()
+            client.send_and_recv_request_on_server(f"delete from learntype where learntype='{learntype}'")
+            client.close()
+
+        except:
+            error = QtWidgets.QDialog()
+            error.show()
+
     def adminpanel_change_value(self):
         learntype = self.ui.lineedit_learntype.text()
         learntime = self.ui.lineedit_learntime.text()
@@ -61,6 +72,7 @@ class Adminpanel(QMainWindow):
         self.ui.lineedit_learnprice_month.clear()
         self.ui.lineedit_learntime_sem.clear()
         self.ui.lineedit_learnprice_year.clear()
+
 class Application(QMainWindow):
     def __init__(self):
         super(Application, self).__init__()
