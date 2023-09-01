@@ -73,6 +73,31 @@ class Adminpanel(QMainWindow):
         self.ui.lineedit_learntime_sem.clear()
         self.ui.lineedit_learnprice_year.clear()
 
+        if learntime != '':
+            string = f'learntime={learntime}'
+            client = Client()
+            client.connect()
+            client.send_and_recv_request_on_server(f"update learntype set {string} where learntype='{learntype}'")
+            client.close()
+        if learnprice_month != '':
+            string = f'learnprice_month={learnprice_month}'
+            client = Client()
+            client.connect()
+            client.send_and_recv_request_on_server(f"update learntype set {string} where learntype='{learntype}'")
+            client.close()
+        if learnprice_sem != '':
+            string = f'learnprice_sem={learnprice_sem}'
+            client = Client()
+            client.connect()
+            client.send_and_recv_request_on_server(f"update learntype set {string} where learntype='{learntype}'")
+            client.close()
+        if learnprice_year != '':
+            string = f'learnprice_year={learnprice_year}'
+            client = Client()
+            client.connect()
+            client.send_and_recv_request_on_server(f"update learntype set {string} where learntype='{learntype}'")
+            client.close()
+
 class Application(QMainWindow):
     def __init__(self):
         super(Application, self).__init__()
