@@ -115,6 +115,7 @@ class Ui_MainWindow(object):
         if (self.tableWidget_before.columnCount() < 5):
             self.tableWidget_before.setColumnCount(5)
         __qtablewidgetitem = QTableWidgetItem()
+        __qtablewidgetitem.setBackground(QColor(85, 255, 0));
         self.tableWidget_before.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tableWidget_before.setHorizontalHeaderItem(1, __qtablewidgetitem1)
@@ -127,7 +128,8 @@ class Ui_MainWindow(object):
         self.tableWidget_before.setObjectName(u"tableWidget_before")
         self.tableWidget_before.setGeometry(QRect(30, 260, 511, 301))
         self.tableWidget_before.setMinimumSize(QSize(391, 0))
-        self.tableWidget_before.setStyleSheet(u"")
+        self.tableWidget_before.setStyleSheet(u"background-color: rgba(94, 94, 94, 0.7);\n"
+"border: 1px solid black;")
         self.tableWidget_before.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidget_before.horizontalHeader().setMinimumSectionSize(32)
         self.tableWidget_before.verticalHeader().setCascadingSectionResizes(False)
@@ -147,10 +149,18 @@ class Ui_MainWindow(object):
         self.tableWidget_after.setObjectName(u"tableWidget_after")
         self.tableWidget_after.setGeometry(QRect(590, 260, 511, 301))
         self.tableWidget_after.setMinimumSize(QSize(391, 0))
-        self.tableWidget_after.setStyleSheet(u"")
+        self.tableWidget_after.setStyleSheet(u"background-color: rgba(94, 94, 94, 0.7);\n"
+"border: 1px solid black;")
         self.tableWidget_after.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidget_after.horizontalHeader().setMinimumSectionSize(32)
         self.tableWidget_after.verticalHeader().setCascadingSectionResizes(False)
+        self.pushButton_update = QPushButton(self.centralwidget)
+        self.pushButton_update.setObjectName(u"pushButton_update")
+        self.pushButton_update.setGeometry(QRect(460, 230, 75, 24))
+        self.pushButton_update.setStyleSheet(u"background-color: rgba(43,48,55, 0.8);\n"
+"border: 1px solid gray;\n"
+"border-radius: 5px;\n"
+"color: white;")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -191,5 +201,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0442\u043e\u0438\u043c. \u0432 \u0441\u0435\u043c.", None));
         ___qtablewidgetitem9 = self.tableWidget_after.horizontalHeaderItem(4)
         ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0442\u043e\u0438\u043c. \u0432 \u0433\u043e\u0434.", None));
+        self.pushButton_update.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c", None))
     # retranslateUi
 
