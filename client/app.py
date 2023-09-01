@@ -22,9 +22,10 @@ class Application(QMainWindow):
         self.ui.pushButton_apply.clicked.connect(self.apply_button_search)
         self.ui.pushButton_clear.clicked.connect(self.clear_button_search)
         self.ui.pushButton_adminpanel.clicked.connect(self.create_adminpanel)
+        self.ui.pushButton_update.clicked.connect(self.update_tablewidget_and_combobox)
 
     def create_adminpanel(self):
-        self.adminpanel = Adminpanel(self.app)
+        self.adminpanel = Adminpanel()
         self.adminpanel.show()
     def update_combobox_learntype(self):
         combobox = self.ui.comboBox_learntype
@@ -82,11 +83,20 @@ class Application(QMainWindow):
                         list_data[j] = int(tuple_data[i][j] - (tuple_data[i][j] * float_skidka))
             change_data.append(tuple(list_data))
         return change_data
+    def update_tablewidget_and_combobox(self):
+        client = Client()
+        client.connect()
+        data = client.send_and_recv_request_on_server(f"select * from learntype;")
+        client.close()
+
+        self.clear_tablewidget(self.ui.tableWidget_before)
+        self.fill_tablewidget(self.ui.tableWidget_before, data)
+        self.update_combobox_learntype()
+
 
 
 class Adminpanel(QMainWindow):
     def __init__(self):
-        self.app = app
         super(Adminpanel, self).__init__()
         self.ui = Ui_adminpanel()
         self.ui.setupUi(self)
