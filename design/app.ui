@@ -267,7 +267,8 @@ color: white;</string>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgba(94, 94, 94, 0.7);
+border: 1px solid black;</string>
     </property>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>false</bool>
@@ -281,6 +282,13 @@ color: white;</string>
     <column>
      <property name="text">
       <string>Тип</string>
+     </property>
+     <property name="background">
+      <color>
+       <red>85</red>
+       <green>255</green>
+       <blue>0</blue>
+      </color>
      </property>
     </column>
     <column>
@@ -320,7 +328,8 @@ color: white;</string>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgba(94, 94, 94, 0.7);
+border: 1px solid black;</string>
     </property>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>false</bool>
@@ -356,6 +365,25 @@ color: white;</string>
       <string>Стоим. в год.</string>
      </property>
     </column>
+   </widget>
+   <widget class="QPushButton" name="pushButton_update">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>230</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(43,48,55, 0.8);
+border: 1px solid gray;
+border-radius: 5px;
+color: white;</string>
+    </property>
+    <property name="text">
+     <string>Обновить</string>
+    </property>
    </widget>
   </widget>
  </widget>
